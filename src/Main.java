@@ -17,11 +17,21 @@ public class Main {
         System.out.println("Correct output: 5");
         System.out.println(VowelCount("AEFI*#)HSH)*$903"));
         System.out.println("Correct output: 3");
-        ////////////////////
+        ///////////////////////////////////////////////
         System.out.println(VowelRemover("Remove all of the vowels."));
-        System.out.println("Correct output: Rmv ll f th vwls");
+        System.out.println("Correct output: Rmv ll f th vwls.");
+        System.out.println(VowelRemover("AEFI*#)HSH)*$903"));
+        System.out.println("Correct output: F*#)HSH)*$903");
+        System.out.println(VowelRemover(""));
+        System.out.println("Correct output: ");
+        ///////////////////////////////////////////////
         System.out.println(ContainsSubstring("Sentence","ten"));
         System.out.println("Correct output: true");
+        System.out.println(ContainsSubstring("The quick brown fox jumps over the lazy dog.","own"));
+        System.out.println("Correct output: true");
+        System.out.println(ContainsSubstring("The quick brown fox jumps over the lazy dog.","hello"));
+        System.out.println("Correct output: false");
+        ///////////////////////////////////////////////
         System.out.println(ReverseString("ABCDEF"));
         System.out.println("Correct output: FEDCBA");
         System.out.println(PalindromeChecker("level"));
@@ -54,8 +64,19 @@ public class Main {
      * @return String with no vowels
      */
     public static String VowelRemover(String input){
-
-        return "";
+        String withoutVowels= "";
+        for(int i = 0; i < input.length(); i++){
+            String letter = input.substring(i,i+1);
+            if(!(letter.toLowerCase().equals("a")
+                    ||letter.toLowerCase().equals("e")
+                    ||letter.toLowerCase().equals("i")
+                    ||letter.toLowerCase().equals("o")
+                    ||letter.toLowerCase().equals("u"))){
+                withoutVowels += letter;
+            };
+        }
+        //make input lowercase
+        return withoutVowels;
     }
 
     /**
@@ -65,7 +86,12 @@ public class Main {
      * @return true if target found, false otherwise
      */
     public static boolean ContainsSubstring(String input, String target){
-
+//        return input.indexOf(target) >= 0;
+        for(int i = 0; i <= i - target.length(); i++){
+            if(input.substring(i,i+target.length()).equals(target)){
+                return true;
+            }
+        }
         return false;
     }
 
