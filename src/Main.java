@@ -34,8 +34,13 @@ public class Main {
         ///////////////////////////////////////////////
         System.out.println(ReverseString("ABCDEF"));
         System.out.println("Correct output: FEDCBA");
+        ////////////////////////////////////////////////
         System.out.println(PalindromeChecker("level"));
         System.out.println("Correct output: true");
+        System.out.println(PalindromeChecker("racecar"));
+        System.out.println("Correct output: true");
+        System.out.println(PalindromeChecker("smart"));
+        System.out.println("Correct output: false");
     }
 
     /**
@@ -87,7 +92,7 @@ public class Main {
      */
     public static boolean ContainsSubstring(String input, String target){
 //        return input.indexOf(target) >= 0;
-        for(int i = 0; i <= i - target.length(); i++){
+        for(int i = 0; i <= input.length() - target.length(); i++){
             if(input.substring(i,i+target.length()).equals(target)){
                 return true;
             }
@@ -101,8 +106,13 @@ public class Main {
      * @return reversed input String
      */
     public static String ReverseString(String input){
-
-        return "";
+        String reversed = "";
+        int length = input.length();
+        for(int i = length; i > 0; i--){
+            String letter = input.substring(i-1,i);
+            reversed += letter;
+        }
+        return reversed;
     }
 
     /**
@@ -111,7 +121,6 @@ public class Main {
      * @return true if given string is a palindrome, false otherwise
      */
     public static boolean PalindromeChecker(String input){
-
-        return false;
+        return ReverseString(input).equals(input);
     }
 }
